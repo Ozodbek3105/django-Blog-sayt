@@ -1,2 +1,2 @@
 ﻿# django-Blog-sayt
-<h1>loyihani ishga tushurish <p>python manage.py runserver </p></h1>
+<h2>loyihani ishga tushurish </h2><kbd>python manage.py runserver </kbd>
