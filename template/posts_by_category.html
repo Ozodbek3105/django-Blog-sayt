@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2 class="text-uppercase text-warning">Posts releted to {{category.name}}</h2>
+{% if posts %}
+<main role="main" class="container p-0">
+  <div class="row">
+    <div class="col-md-10 blog-main">
+      {% for post in posts %}
+      <div class="card border-0">
+        <div class="card-body">
+          <h3>
+            <a href="{% url 'single_blog' post.slug %}" class="text-dark">{{post.title}}</a>
+          </h3>
+          <small class="mb-1 text-muted"
+            >{{post.created_at}} | {{post.author}}</small
+          >
+          <p class="card-text">{{post.short_description | truncatewords:20}}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- /.blog-post -->
+    </div>
+    <!-- /.blog-main -->
+
+    <!-- /.blog-sidebar -->
+  </div>
+  <!-- /.row -->
+</main>
+{% else %}
+<p>No content</p>
+{% endif %} {% endblock %}
