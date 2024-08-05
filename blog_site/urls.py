@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from blogs.views import single_blog,search
-from .views import home
+from .views import home,register
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,5 +26,6 @@ urlpatterns = [
     path('', home, name='home'),
     path('blogs/<slug:link>/',single_blog,name='single_blog'),
     path('category/',include('blogs.urls')),
-    path('search/',search,name='search')
+    path('search/',search,name='search'),
+    path('register/',register,name="register")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
