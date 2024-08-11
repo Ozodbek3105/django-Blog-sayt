@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/00d0681d0f.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="{% static 'css/blog.css' %}" rel="stylesheet" />
   </head>
 
@@ -38,7 +42,6 @@
                     value="{{keyword}}"
                   />
                   <button
-        
                     class="btn btn-primary"
                     id="button-search"
                     type="submit"
@@ -50,8 +53,24 @@
             </form>
           </div>
           <div class="col-3 d-flex justify-content-end align-items-center">
-            <a class="btn btn-sm btn-warning" href="#">Login</a> &nbsp;
-            <a class="btn btn-sm btn-outline-secondary" href="#">Register</a>
+            {% if user.is_authenticated %} {{user}}&nbsp;&nbsp;<a
+              class="text-primary"
+              href="{% url 'dashboard' %}"
+              >Dashboard</a
+            >
+            &nbsp;&nbsp;
+            <a class="btn btn-sm btn-warning" href="{% url 'logout' %}"
+              >Logout</a
+            >
+            &nbsp; {% else %}
+            <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a>
+            &nbsp;
+            <a
+              class="btn btn-sm btn-outline-secondary"
+              href="{% url 'register' %}"
+              >Register</a
+            >
+            {% endif %}
           </div>
         </div>
       </header>

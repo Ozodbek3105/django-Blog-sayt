@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h3>Dashboard</h3>
+<div class="row my-3">
+  <!-- chap menyu -->
+{% include 'dashboard/left-side-bar.html' %}
+  <!-- o'ng qismi -->
+  <div class="col-9">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header text-center font-weight-bold">Categories</div>
+          <div class="card-body text-center">{{category_count}}</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header text-center font-weight-bold">Blogs</div>
+          <div class="card-body text-center">{{blog_count}}</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header text-center font-weight-bold">Users</div>
+          <div class="card-body text-center">{{blog_count}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

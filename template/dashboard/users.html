@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="row">
+  <div class="col-3">
+    <h3>Users</h3>
+  </div>
+  <div class="col-9 text-right">
+    {% if perms.auth.add_user %}
+    <a href="{% url 'add_user' %}" class="btn btn-primary">Add User</a>
+     {% endif %}
+  </div>
+</div>
+<div class="row my-3">
+  <!-- chap menyu -->
+  {% include 'dashboard/left-side-bar.html' %}
+  <!-- o'ng qismi -->
+   
+  <div class="col-9">
+    {% if perms.auth.add_user %}
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Fullname</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Staff</th>
+          <th scope="col">Active</th>
+          <th scope="col">Superuser</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{user.first_name}}&nbsp;{{user.last_name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            {% if user.is_staff %}<i
+              class="far fa-check-square text-primary"></i>
+            {% else %}<i class="fas fa-minus-circle text-danger"></i>
+            {% endif %}
+          </td>
+          <td>
+            {% if user.is_active %}<i
+              class="far fa-check-square text-primary"></i>
+            {% else %}<i class="fas fa-minus-circle text-danger"></i>
+            {% endif %}
+          </td>
+          <td>
+            {% if user.is_superuser %}<i
+              class="far fa-check-square text-primary"></i>
+            {% else %}<i class="fas fa-minus-circle text-danger"></i>
+            {% endif %}
+          </td>
+          <td>
+            <a href="{% url 'edit_user' user.id %}">
+              <i class="far fa-edit text-primary"></i>
+            </a>
+            &nbsp;
+            <a href="{% url 'delete_user' user.id %}"">
+              <i class="fas fa-trash-alt text-danger"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+        {% else %}
+    <h5>You don't have permission</h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

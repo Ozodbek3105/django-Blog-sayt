@@ -12,8 +12,8 @@
             <a href="{% url 'single_blog' post.slug %}" class="text-dark">{{post.title}}</a>
           </h3>
           <small class="mb-1 text-muted"
-            >{{post.created_at}} | {{post.author}}</small
-          >
+            >{{post.created_at}} | {{post.author}}</small>
+          
           <p class="card-text">{{post.short_description | truncatewords:20}}</p>
         </div>
       </div>

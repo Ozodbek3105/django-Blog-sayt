@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="row">
+  <div class="col-3">
+    <h3>Blogs</h3>
+  </div>
+  <div class="col-9 text-right">
+    <a href="{% url 'add_blogs' %}" class="btn btn-primary">Add Blog</a>
+  </div>
+</div>
+<div class="row my-3">
+  <!-- chap menyu -->
+  {% include 'dashboard/left-side-bar.html' %}
+  <!-- o'ng qismi -->
+  <div class="col-9">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Category</th>
+          <th scope="col">Author</th>
+          <th scope="col">Status</th>
+          <th scope="col">Featured</th>
+          <th scope="col">Created</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for blog in blogs %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{blog.title}}</td>
+          <td>{{blog.category}}</td>
+          <td>{{blog.author}}</td>
+          <td>
+            {% if blog.status == 1 %}<i
+              class="far fa-check-square text-primary"></i>
+            {% else %}<i class="fas fa-minus-circle text-danger"></i>
+            {% endif %}
+          </td>
+          <td>
+            {% if blog.is_featured == 1 %}<i
+              class="far fa-check-square text-primary"></i>
+            {% else %}<i class="fas fa-minus-circle text-danger"></i>
+            {% endif %}
+          </td>
+          <td>{{blog.created_at|date:'d.m.Y'}}</td>
+
+          <td>
+            <a href="{% url 'edit_blogs' blog.id %}">
+              <i class="far fa-edit text-primary"></i>
+            </a>
+            &nbsp;
+            <a href="{% url 'delete_blog' blog.id %}">
+              <i class="fas fa-trash-alt text-danger"></i>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
