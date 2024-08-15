@@ -32,6 +32,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -69,6 +85,14 @@
         "description": "django.db",
         "isExtraImport": true,
         "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -153,6 +177,14 @@
         "documentation": {}
     },
     {
+        "label": "Comment",
+        "importPath": "blogs.models",
+        "description": "blogs.models",
+        "isExtraImport": true,
+        "detail": "blogs.models",
+        "documentation": {}
+    },
+    {
         "label": "Category",
         "importPath": "blogs.models",
         "description": "blogs.models",
@@ -170,6 +202,14 @@
     },
     {
         "label": "Category",
+        "importPath": "blogs.models",
+        "description": "blogs.models",
+        "isExtraImport": true,
+        "detail": "blogs.models",
+        "documentation": {}
+    },
+    {
+        "label": "Comment",
         "importPath": "blogs.models",
         "description": "blogs.models",
         "isExtraImport": true,
@@ -254,54 +294,6 @@
         "description": "django.apps",
         "isExtraImport": true,
         "detail": "django.apps",
-        "documentation": {}
-    },
-    {
-        "label": "mod",
-        "importPath": "ast",
-        "description": "ast",
-        "isExtraImport": true,
-        "detail": "ast",
-        "documentation": {}
-    },
-    {
-        "label": "unique",
-        "importPath": "enum",
-        "description": "enum",
-        "isExtraImport": true,
-        "detail": "enum",
-        "documentation": {}
-    },
-    {
-        "label": "verbose",
-        "importPath": "tabnanny",
-        "description": "tabnanny",
-        "isExtraImport": true,
-        "detail": "tabnanny",
-        "documentation": {}
-    },
-    {
-        "label": "mode",
-        "importPath": "turtle",
-        "description": "turtle",
-        "isExtraImport": true,
-        "detail": "turtle",
-        "documentation": {}
-    },
-    {
-        "label": "title",
-        "importPath": "turtle",
-        "description": "turtle",
-        "isExtraImport": true,
-        "detail": "turtle",
-        "documentation": {}
-    },
-    {
-        "label": "category",
-        "importPath": "unicodedata",
-        "description": "unicodedata",
-        "isExtraImport": true,
-        "detail": "unicodedata",
         "documentation": {}
     },
     {
@@ -393,6 +385,22 @@
         "documentation": {}
     },
     {
+        "label": "HttpResponseRedirect",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
         "label": "get_object_or_404",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -470,6 +478,14 @@
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "importPath": "dashboard.views",
+        "description": "dashboard.views",
+        "isExtraImport": true,
+        "detail": "dashboard.views",
         "documentation": {}
     },
     {
@@ -642,14 +658,6 @@
         "documentation": {}
     },
     {
-        "label": "HttpRequest",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
         "label": "About",
         "importPath": "settingapp.models",
         "description": "settingapp.models",
@@ -701,11 +709,20 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blogs.migrations.0003_comment",
+        "description": "blogs.migrations.0003_comment",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blogs', '0002_alter_category_options_blog'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Comment',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "blogs.migrations.0003_comment",
+        "documentation": {}
+    },
+    {
         "label": "BlogAdmin",
         "kind": 6,
         "importPath": "blogs.admin",
         "description": "blogs.admin",
-        "peekOfCode": "class BlogAdmin(admin.ModelAdmin):\n    prepopulated_fields = {\"slug\": ('title',)}\n    list_display = ('id','title', 'status', 'is_featured', 'created_at')\n    list_editable = ('is_featured','status', 'title')\n    search_fields = ()\nadmin.site.register(Category)\nadmin.site.register(Blog, BlogAdmin)",
+        "peekOfCode": "class BlogAdmin(admin.ModelAdmin):\n    prepopulated_fields = {\"slug\": ('title',)}\n    list_display = ('id','title', 'status', 'is_featured', 'created_at')\n    list_editable = ('is_featured','status', 'title')\n    search_fields = ()\nadmin.site.register(Category)\nadmin.site.register(Blog, BlogAdmin)\nadmin.site.register(Comment)",
         "detail": "blogs.admin",
         "documentation": {}
     },
@@ -746,6 +763,15 @@
         "documentation": {}
     },
     {
+        "label": "Comment",
+        "kind": 6,
+        "importPath": "blogs.models",
+        "description": "blogs.models",
+        "peekOfCode": "class Comment(models.Model):\n    blog = models.ForeignKey(Blog,on_delete=models.CASCADE)\n    user = models.ForeignKey(User,on_delete=models.CASCADE)\n    text = models.TextField()\n    created_at = models.DateTimeField(auto_now_add=True)\n    updated_at = models.DateTimeField(auto_now=True)\n    def __str__(self) -> str:\n        return self.text",
+        "detail": "blogs.models",
+        "documentation": {}
+    },
+    {
         "label": "STATUS_CHOICES",
         "kind": 5,
         "importPath": "blogs.models",
@@ -777,7 +803,7 @@
         "kind": 2,
         "importPath": "blogs.views",
         "description": "blogs.views",
-        "peekOfCode": "def single_blog(request,link):\n    blog = get_object_or_404(Blog,slug=link)\n    context = {\n        'blog':blog\n    }\n    return render(request,'single-blog.html',context)\ndef search(request):\n    keyword = request.GET.get('keyword','')\n    blogs = Blog.objects.filter(Q(title__icontains=keyword) | Q(body__icontains=keyword))\n    context = {",
+        "peekOfCode": "def single_blog(request,link):\n    blog = get_object_or_404(Blog,slug=link)\n    if request.method == \"GET\":\n        comments = Comment.objects.filter(blog=blog)\n        comment_count = comments.count()\n        context = {\n            'blog':blog,\n            'comments':comments,\n            'comment_count':comment_count\n        }",
         "detail": "blogs.views",
         "documentation": {}
     },

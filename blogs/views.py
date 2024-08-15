@@ -1,10 +1,12 @@
-from turtle import title
+
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Q
 # Create your views here.
 
 
-from blogs.models import Blog, Category
+from blogs.models import Blog, Category, Comment
+from dashboard.views import users
 
 # Create your views here.
 
@@ -21,10 +23,25 @@ def posts_by_category(request, category_id):
 
 def single_blog(request,link):
     blog = get_object_or_404(Blog,slug=link)
-    context = {
-        'blog':blog
-    }
-    return render(request,'single-blog.html',context)
+    if request.method == "GET":
+        comments = Comment.objects.filter(blog=blog)
+        comment_count = comments.count()
+        context = {
+            'blog':blog,
+            'comments':comments,
+            'comment_count':comment_count
+        }
+        return render(request,'single-blog.html',context)
+    elif request.method == "POST":
+        comment = Comment()
+    
+        comment.user = request.user
+        comment.blog = blog
+        comment.text = request.POST['comment']
+        comment.save()
+        return HttpResponseRedirect(request.path_info)
+
+        
 
 def search(request):
     keyword = request.GET.get('keyword','')
