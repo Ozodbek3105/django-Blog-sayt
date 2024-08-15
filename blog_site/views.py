@@ -1,7 +1,7 @@
 
 
 from django.shortcuts import redirect, render
-from requests import post
+
 
 from blog_site.forms import RegistrationForm
 from blogs.models import Blog, Category

@@ -562,14 +562,6 @@
         "documentation": {}
     },
     {
-        "label": "post",
-        "importPath": "requests",
-        "description": "requests",
-        "isExtraImport": true,
-        "detail": "requests",
-        "documentation": {}
-    },
-    {
         "label": "RegistrationForm",
         "importPath": "blog_site.forms",
         "description": "blog_site.forms",
@@ -992,7 +984,7 @@
         "kind": 5,
         "importPath": "blog_site.settings",
         "description": "blog_site.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    'blog_site/static'\n]\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'",
+        "peekOfCode": "STATICFILES_DIRS = [\n    'blog_site/static'\n]\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'\nCRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
         "detail": "blog_site.settings",
         "documentation": {}
     },
@@ -1001,7 +993,7 @@
         "kind": 5,
         "importPath": "blog_site.settings",
         "description": "blog_site.settings",
-        "peekOfCode": "MEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'",
+        "peekOfCode": "MEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'\nCRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
         "detail": "blog_site.settings",
         "documentation": {}
     },
@@ -1010,7 +1002,7 @@
         "kind": 5,
         "importPath": "blog_site.settings",
         "description": "blog_site.settings",
-        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'\nCRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
         "detail": "blog_site.settings",
         "documentation": {}
     },
@@ -1019,7 +1011,7 @@
         "kind": 5,
         "importPath": "blog_site.settings",
         "description": "blog_site.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCRISPY_TEMPLATE_PACK = 'bootstrap5'\nCRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
         "detail": "blog_site.settings",
         "documentation": {}
     },
@@ -1028,7 +1020,16 @@
         "kind": 5,
         "importPath": "blog_site.settings",
         "description": "blog_site.settings",
-        "peekOfCode": "CRISPY_TEMPLATE_PACK = 'bootstrap5'",
+        "peekOfCode": "CRISPY_TEMPLATE_PACK = 'bootstrap5'\nCRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
+        "detail": "blog_site.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CRISPY_ALLOWED_TEMPLATE_PACKS",
+        "kind": 5,
+        "importPath": "blog_site.settings",
+        "description": "blog_site.settings",
+        "peekOfCode": "CRISPY_ALLOWED_TEMPLATE_PACKS = \"bootstrap5\"",
         "detail": "blog_site.settings",
         "documentation": {}
     },
