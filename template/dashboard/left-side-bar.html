@@ -1,10 +1,18 @@
-<div class="col-3">
-  <nav class="nav nav-pills flex-column border bg-light">
-    <a href="{% url 'dashboard' %}" class="nav-link text-dark {% if '/dashboard/' == request.path %} bg-warning {% endif %}">Dashboard</a>
-    <a href="{% url 'categories' %}" class="nav-link text-dark {% if '/categories/' in request.path %} bg-warning {% endif %}">Category </a>
-    {% if perms.user.view_user %}
-    <a href="{% url 'users' %}" class="nav-link text-dark {% if '/users/' in request.path %} bg-warning {% endif %}">Users </a>
-    {% endif %}
-    <a href="{% url 'blogs' %}" class="nav-link text-dark {% if '/blogs/' in request.path %} bg-warning {% endif %}">Blogs</a>
-  </nav>
+<div class="dropdown">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-toggle="dropdown"
+    aria-expanded="false"
+  >
+    {% if '/dashboard/' == request.path %} Dashboard {% elif '/dashboard/categories/' == request.path %} Categories 
+    {% elif '/dashboard/users/' == request.path %} Users {% elif '/dashboard/blogs/' == request.path %} Blogs{% endif %}
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item {% if '/dashboard/' == request.path %} active {% endif %} btn" href="{% url 'dashboard' %}" type="button">Dashboard</a>
+    <a class="dropdown-item {% if '/dashboard/categories/' == request.path %} active {% endif %} btn" href="{% url 'categories' %}" type="button">Category</a>
+    <a class="dropdown-item {% if '/dashboard/users/' == request.path %} active {% endif %} btn" href="{% url 'users' %}" type="button">Users</a>
+    <a class="dropdown-item {% if '/dashboard/blogs/' == request.path %} active {% endif %} btn" href="{% url 'blogs' %}" type="button">Blogs</a>
+  </div>
 </div>
+

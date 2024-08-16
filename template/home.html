@@ -23,7 +23,7 @@
 <h2 class="text-uppercase text-warning">Future Posts</h2>
 <div class="row mb-2">
   {% for post in posts %} {% if forloop.first %}
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="card border-0">
       <div class="card-body">
         <h3><a href="{% url 'single_blog' post.slug %}" class="text-dark">{{post.title}}</a></h3>

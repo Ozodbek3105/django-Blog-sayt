@@ -425,6 +425,14 @@
         "documentation": {}
     },
     {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "redirect",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -506,6 +514,22 @@
         "documentation": {}
     },
     {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
         "label": "UserCreationForm",
         "importPath": "django.contrib.auth.forms",
         "description": "django.contrib.auth.forms",
@@ -575,14 +599,6 @@
         "description": "django.core.wsgi",
         "isExtraImport": true,
         "detail": "django.core.wsgi",
-        "documentation": {}
-    },
-    {
-        "label": "forms",
-        "importPath": "django",
-        "description": "django",
-        "isExtraImport": true,
-        "detail": "django",
         "documentation": {}
     },
     {
@@ -822,7 +838,7 @@
         "kind": 6,
         "importPath": "blog_site.forms",
         "description": "blog_site.forms",
-        "peekOfCode": "class RegistrationForm(UserCreationForm):\n    class Meta:\n        model = User\n        fields = ('email','username','password1','password2')",
+        "peekOfCode": "class RegistrationForm(UserCreationForm):\n    class Meta:\n        model = User\n        fields = ('username', 'email', 'password1','password2')\n    def clean_email(self):\n        email = self.cleaned_data[\"email\"]\n        # id = self.instance.id\n        if User.objects.filter(email=email).exists():\n            raise forms.ValidationError(\"This email already in use\")\n        else:",
         "detail": "blog_site.forms",
         "documentation": {}
     },
@@ -1056,7 +1072,7 @@
         "kind": 2,
         "importPath": "blog_site.views",
         "description": "blog_site.views",
-        "peekOfCode": "def register(request):\n    if request.method == \"POST\":\n        print(request.POST)\n        form = RegistrationForm(request.POST)\n        if form.is_valid():\n            form.save()\n        else:\n            print(form.errors)\n        return redirect('register')\n    else:",
+        "peekOfCode": "def register(request):\n    if request.method == \"POST\":\n        print(request.POST)\n        form = RegistrationForm(request.POST)\n        if form.is_valid():\n            form.save()\n        else:\n            context = {\n                'form':form,\n            }",
         "detail": "blog_site.views",
         "documentation": {}
     },

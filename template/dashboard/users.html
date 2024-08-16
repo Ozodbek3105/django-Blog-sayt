@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+
 <div class="row">
   <div class="col-3">
-    <h3>Users</h3>
+    {% include 'dashboard/left-side-bar.html' %}
   </div>
   <div class="col-9 text-right">
     {% if perms.auth.add_user %}
@@ -11,10 +12,10 @@
 </div>
 <div class="row my-3">
   <!-- chap menyu -->
-  {% include 'dashboard/left-side-bar.html' %}
+  
   <!-- o'ng qismi -->
    
-  <div class="col-9">
+  <div class="col-12" style="overflow-x: auto">
     {% if perms.auth.add_user %}
     <table class="table table-hover">
       <thead>

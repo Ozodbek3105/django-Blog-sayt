@@ -25,8 +25,12 @@ def register(request):
         if form.is_valid():
             form.save()
         else:
+            context = {
+                'form':form,
+            }
             print(form.errors)
-        return redirect('register')
+            return render(request, 'register.html', context)
+        # return redirect('register')
     else:
 
         form = RegistrationForm()
@@ -50,9 +54,13 @@ def login(request):
             if user is not None:
                 auth.login(request,user)
                 return redirect('home')
-            else:
-                return redirect('login')
-        return redirect('login')
+        else:
+            context = {
+                'form':form,
+            }
+
+            return render(request, 'login.html', context)
+        # return redirect('login')
     
 def logout(request):
     auth.logout(request)

@@ -1,10 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<h3>Dashboard</h3>
+{% include 'dashboard/left-side-bar.html' %}
 <div class="row my-3">
   <!-- chap menyu -->
-{% include 'dashboard/left-side-bar.html' %}
   <!-- o'ng qismi -->
-  <div class="col-9">
+  <div class="col-12">
     <div class="row">
       <div class="col">
         <div class="card">
