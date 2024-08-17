@@ -3,24 +3,60 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
 
+from django import forms
+from django.contrib.auth.models import User
 
-class RegistrationForm(UserCreationForm):
+class RegisterForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Password',
+        'style': 'width: 300px;',
+    }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Confirm Password',
+        'style': 'width: 300px;',
+    }))
+
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1','password2')
+        fields = ['username', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Username',
+                'style': 'width: 300px;',
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Email',
+                'style': 'width: 300px;',
+            }),
+        }
 
-    def clean_email(self):
-        email = self.cleaned_data["email"]
-        # id = self.instance.id
-        if User.objects.filter(email=email).exists():
-            raise forms.ValidationError("This email already in use")
-        
-        else:
-            return email
-        
     def clean_password2(self):
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Parollar mos emas.")
-        return password2
+        cd = self.cleaned_data
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError("Passwords are not the same")
+        return cd['password2']
+
+
+
+class CustomLoginForm(forms.Form):
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',  # Bootstrap yoki boshqa CSS sinfini qo‘shishingiz mumkin
+            'style': 'width: 300px; align:center',  # Input maydonining kengligini qisqartirish
+            'placeholder': 'Username'
+        })
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'style': 'width: 300px; align:center',
+            'placeholder': 'Password'
+        })
+    )
+    class Meta:
+        model = User
+        fields = ('username', 'password2')

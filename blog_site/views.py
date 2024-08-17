@@ -3,7 +3,7 @@
 from django.shortcuts import redirect, render
 
 
-from blog_site.forms import RegistrationForm
+from blog_site.forms import CustomLoginForm, RegisterForm
 from blogs.models import Blog, Category
 from django.contrib.auth.forms import  AuthenticationForm
 from django.contrib import auth
@@ -21,9 +21,10 @@ def home(request):
 def register(request):
     if request.method == "POST":
         print(request.POST)
-        form = RegistrationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('login')
         else:
             context = {
                 'form':form,
@@ -33,14 +34,14 @@ def register(request):
         # return redirect('register')
     else:
 
-        form = RegistrationForm()
+        form = RegisterForm()
     context = {
         'form':form
     }
     return render(request,'register.html',context)
 def login(request):
     if request.method == "GET":
-        form = AuthenticationForm()
+        form = CustomLoginForm()
         context = {
             "form":form
         }

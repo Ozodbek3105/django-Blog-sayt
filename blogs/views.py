@@ -6,7 +6,7 @@ from django.db.models import Q
 
 
 from blogs.models import Blog, Category, Comment
-from dashboard.views import users
+# from dashboard.views import users
 
 # Create your views here.
 
