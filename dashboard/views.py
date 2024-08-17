@@ -102,7 +102,7 @@ def edit_blogs(request,pk):
         return render(request,'dashboard/edit_blogs.html',context)
     
     elif request.method == "POST":
-        form = BlogForm(request.POST,instance=blog )
+        form = BlogForm(request.POST, request.FILES, instance=blog )
         if form.is_valid():
             form.save()
             return redirect('blogs')

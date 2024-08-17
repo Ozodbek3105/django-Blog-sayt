@@ -15,6 +15,7 @@
       action="{% url 'edit_blogs' blog.id %}"
       method="post"
       style="width: 500px; margin: auto"
+      enctype="multipart/form-data"
     >
       {% csrf_token %} {{form|crispy}}
       <button type="submit" class="btn btn-primary">Update</button>
