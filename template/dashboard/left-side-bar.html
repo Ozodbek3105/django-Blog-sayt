@@ -6,9 +6,15 @@
     aria-expanded="false"
   >
     {% if '/dashboard/' == request.path %} Dashboard 
+<<<<<<< HEAD
     {% elif '/dashboard/categories/' in request.path %} Categories 
     {% elif '/dashboard/users/' in request.path %}  Users 
     {% elif '/dashboard/blogs/' in request.path %} Blogs{% endif %}
+=======
+    {% elif '/dashboard/categories/' == request.path or '/dashboard/categories/add/' == request.path or '/dashboard/categories/edit/' in request.path %} Categories 
+    {% elif '/dashboard/users/' == request.path or '/dashboard/users/add/' == request.path or '/dashboard/users/edit/' in request.path %}  Users 
+    {% elif '/dashboard/categories/' == request.path or '/dashboard/categories/add/' == request.path or '/dashboard/categories/edit/' in request.path %} Blogs{% endif %}
+>>>>>>> 5747143c9b3a167a5f7bf22aaec37bb803c7e623
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item {% if '/dashboard/' == request.path %} active {% endif %} btn" href="{% url 'dashboard' %}" type="button">Dashboard</a>
