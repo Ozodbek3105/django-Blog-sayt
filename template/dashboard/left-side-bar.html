@@ -5,8 +5,10 @@
     data-toggle="dropdown"
     aria-expanded="false"
   >
-    {% if '/dashboard/' == request.path %} Dashboard {% elif '/dashboard/categories/' == request.path %} Categories 
-    {% elif '/dashboard/users/' == request.path %} Users {% elif '/dashboard/blogs/' == request.path %} Blogs{% endif %}
+    {% if '/dashboard/' == request.path %} Dashboard 
+    {% elif '/dashboard/categories/' in request.path %} Categories 
+    {% elif '/dashboard/users/' in request.path %}  Users 
+    {% elif '/dashboard/blogs/' in request.path %} Blogs{% endif %}
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item {% if '/dashboard/' == request.path %} active {% endif %} btn" href="{% url 'dashboard' %}" type="button">Dashboard</a>

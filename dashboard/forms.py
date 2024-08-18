@@ -17,7 +17,18 @@ class BlogForm(forms.ModelForm):
 class AddUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ('username','email','first_name','last_name','is_staff','is_active','is_superuser','groups','user_permissions')
+        fields = ('username','email','first_name','last_name','is_staff','is_active','groups','user_permissions')
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("This email address is already in use.")
+        return email
+
+    user_permissions = forms.ModelMultipleChoiceField(
+    queryset=Permission.objects.filter(codename__in=['add_blog', 'view_blog', 'change_blog', 'delete_blog', 'add_category', 'view_category', 'change_category', 'delete_category']),
+    widget=forms.SelectMultiple,
+    required=False 
+    )
 
 class EditUserForm(forms.ModelForm ):
     class Meta:

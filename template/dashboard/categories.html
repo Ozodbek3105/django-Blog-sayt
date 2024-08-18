@@ -1,22 +1,17 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="row">
-  <div class="col-3">
-    {% include 'dashboard/left-side-bar.html' %}
-  </div>
+  <div class="col-3">{% include 'dashboard/left-side-bar.html' %}</div>
   <div class="col-9 text-right">
-    <a href="{% url 'add_category' %}" class="btn btn-primary ">Add Category</a>
+    <a href="{% url 'add_category' %}" class="btn btn-primary">Add Category</a>
   </div>
 </div>
 <div class="row my-3">
-  <!-- chap menyu -->
-  
-  <!-- o'ng qismi -->
   <div class="col-12" style="overflow-x: auto">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">#</th>  
           <th scope="col">Name</th>
           <th scope="col">Created at</th>
           <th scope="col">Updated at</th>
