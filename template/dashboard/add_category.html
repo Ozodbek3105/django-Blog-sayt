@@ -1,14 +1,12 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 <div class="row">
   <div class="col-3">
-    <h3>Categories</h3>
+    {% include 'dashboard/left-side-bar.html' %}
   </div>
 </div>
 <div class="row my-3">
-  <!-- chap menyu -->
-  {% include 'dashboard/left-side-bar.html' %}
-  <!-- o'ng qismi -->
-  <div class="col-9">
+
+  <div class="col-12">
     {% load crispy_forms_tags %}
     <h4 class="text-center">Add Category</h4>
     <form
