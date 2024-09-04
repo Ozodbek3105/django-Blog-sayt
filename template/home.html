@@ -22,7 +22,8 @@
 {% endif %} {% endfor %}
 <h2 class="text-uppercase text-warning">Future Posts</h2>
 <div class="row mb-2">
-  {% for post in posts %} {% if forloop.first %}
+  {% for post in posts %} 
+
   <div class="col-md-12">
     <div class="card border-0">
       <div class="card-body">
@@ -30,11 +31,12 @@
         <small class="mb-1 text-muted"
           >{{post.created_at}} | {{post.author}}</small
         >
-        <p class="card-text">{{post.short_description | truncatewords:20}}</p>
+        <p class="card-text">{{post.short_description | truncatewords:50}}</p>
       </div>
     </div>
   </div>
-  {% endif %} {% endfor %}
+  
+  {% endfor %}
 </div>
 <h2 class="text-uppercase text-warning">Recent Posts</h2>
 <main role="main" class="container p-0">

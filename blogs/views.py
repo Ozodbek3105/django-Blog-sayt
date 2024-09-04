@@ -37,7 +37,7 @@ def single_blog(request,link):
     
         comment.user = request.user
         comment.blog = blog
-        comment.text = request.POST['comment']
+        comment.text = request.POST['comment'] 
         comment.save()
         return HttpResponseRedirect(request.path_info)
 
